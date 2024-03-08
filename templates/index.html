@@ -19,6 +19,7 @@
 </head>
 <body>
     <h1 style="font-size: 200px;">{{ text }}</h1>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Capture the content of the entire body
@@ -29,8 +30,7 @@
                 $.ajax({
                     type: "POST",
                     url: "/save_image",
-                    contentType: "application/json",  // Set content type to JSON
-                    data: JSON.stringify({ image_data: dataURL }),  // Convert to JSON string
+                    data: { image_data: dataURL },
                     success: function(response) {
                         // Handle success if needed
                         console.log(response);
@@ -42,7 +42,6 @@
                 });
             });
         });
-    </script>
-   
+    </script>    
 </body>
 </html>
