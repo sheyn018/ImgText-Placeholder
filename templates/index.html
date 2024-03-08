@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="link here">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Include html2canvas library -->
+     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://pagecdn.io/lib/easyfonts/fonts.css">
+    <style>
+        body {
+            font-family: "{{ font_type }}", sans-serif;
+        }
+        h1 {
+            font-size: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 200px;">{{ text }}</h1>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Capture the content of the entire body
+            html2canvas(document.body).then(function(canvas) {
+    var dataURL = canvas.toDataURL();
+
+    // Display the data URL in an alert
+    // alert(dataURL);
+
+    // You can also display it in the HTML for testing purposes
+    document.body.innerHTML += '<p>Data URL:</p><textarea rows="10" cols="80">' + dataURL + '</textarea>';
+});
+
+        });
+    </script>    
+</body>
+</html>
