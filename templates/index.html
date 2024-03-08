@@ -29,7 +29,7 @@
                 // Send data URL to Flask using AJAX
                 $.ajax({
                     type: "POST",
-                    url: "/",
+                    url: "/save_image",
                     data: { image_data: dataURL },
                     success: function(response) {
                         // Handle success if needed
