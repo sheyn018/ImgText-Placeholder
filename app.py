@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 # Replace this with your actual Google Fonts API key
-google_fonts_api_key = ""
+google_fonts_api_key = "AIzaSyA2oLesrP-WPRZOSzQvb9IMQ5NYwytHfbA"
 google_fonts_api_url = f"https://www.googleapis.com/webfonts/v1/webfonts?key={google_fonts_api_key}"
 
 def fetch_google_fonts():
