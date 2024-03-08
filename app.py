@@ -24,7 +24,7 @@ def home():
         # For now, let's just print it
         print("Received image data:", image_data)
         
-        return jsonify({'data': image_data})
+        return jsonify({'data': 'Image received!'})
 
     # If it's a GET request, render the HTML template
     fonts = fetch_google_fonts()
