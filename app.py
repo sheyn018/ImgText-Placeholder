@@ -13,27 +13,30 @@ def fetch_google_fonts():
     fonts = data.get('items', [])
     return fonts
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
+    if request.method == 'POST':
+        # Handle POST request if needed
+        # Get the image data from the POST request
+        image_data = request.form.get('image_data')
+        
+        # Process the image_data as needed (e.g., save to a file, database, etc.)
+        # For now, let's just print it
+        print("Received image data:", image_data)
+        
+        return jsonify({'data': image_data})
+
+    # If it's a GET request, render the HTML template
+    fonts = fetch_google_fonts()
+     # Handle the GET request logic
     user_font = request.args.get('font')
-    
+
     if user_font:
         default_font = user_font
     else:
         default_font = "Playfair Display"
-
-    fonts = fetch_google_fonts()
     default_text = default_font
     return render_template('index.html', text=default_text, font_type=default_font, fonts=fonts)
-
-@app.route('/save_image', methods=['POST'])
-def save_image():
-    if request.method == 'POST':
-        image_data = request.form.get('image_data')
-        # Process the image_data as needed (e.g., save to a file, database, etc.)
-        # For now, let's just print it
-        print("Received image data:", image_data)
-        return jsonify({'data': image_data})
 
 if __name__ == '__main__':
     app.run(debug=True)
