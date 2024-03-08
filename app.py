@@ -13,14 +13,16 @@ def fetch_google_fonts():
     fonts = data.get('items', [])
     return fonts
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def home():
-    if request.method == 'POST':
-        # Handle POST request if needed
-        pass
+    user_font = request.args.get('font')
     
+    if user_font:
+        default_font = user_font
+    else:
+        default_font = "Playfair Display"
+
     fonts = fetch_google_fonts()
-    default_font = "Playfair Display"
     default_text = default_font
     return render_template('index.html', text=default_text, font_type=default_font, fonts=fonts)
 
