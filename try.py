@@ -31,7 +31,7 @@ def screenshot_to_data_url(url):
 
         # Create data URL
         data_url = f"data:image/png;base64,{screenshot_base64}"
-
+        print(data_url)
         print("Screenshot captured successfully.")
         
         return data_url
@@ -54,6 +54,6 @@ def process_data_url(data_url):
         print("No data URL to process.")
 
 # Example usage, ensuring data_url is checked for None
-url = 'https://www.example.com'
+url = 'https://imgtext-placeholder.onrender.com/?font=merriweather'
 data_url = screenshot_to_data_url(url)
-process_data_url(data_url)
+# process_data_url(data_url)
