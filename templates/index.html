@@ -18,30 +18,6 @@
     </style>
 </head>
 <body>
-    <h1 style="font-size: 200px;">{{ text }}</h1>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Capture the content of the entire body
-            html2canvas(document.body).then(function(canvas) {
-                var dataURL = canvas.toDataURL();
-
-                // Send data URL to Flask using AJAX
-                $.ajax({
-                    type: "POST",
-                    url: "/save_image",
-                    data: { image_data: dataURL },
-                    success: function(response) {
-                        // Handle success if needed
-                        console.log(response);
-                    },
-                    error: function(error) {
-                        // Handle error if needed
-                        console.error(error);
-                    }
-                });
-            });
-        });
-    </script>    
+    <h1 style="font-size: 100px;">{{ text }}</h1>
 </body>
 </html>

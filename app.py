@@ -26,14 +26,5 @@ def home():
     default_text = default_font
     return render_template('index.html', text=default_text, font_type=default_font, fonts=fonts)
 
-@app.route('/save_image', methods=['POST'])
-def save_image():
-    if request.method == 'POST':
-        image_data = request.form.get('image_data')
-        # Process the image_data as needed (e.g., save to a file, database, etc.)
-        # For now, let's just print it
-        print("Received image data:", image_data)
-        return jsonify({'message': 'Image data received successfully'})
-
 if __name__ == '__main__':
     app.run(debug=True)
